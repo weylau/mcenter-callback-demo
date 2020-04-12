@@ -1,0 +1,17 @@
+version: '3'
+
+networks:
+  default:
+    external:
+      name: myblog-network
+
+services:
+  mcenter-callback-demo:
+    image: registry.cn-shenzhen.aliyuncs.com/weylau/mcenter-callback-demo:latest
+    ports:
+      - 9001:9001
+    volumes:
+      - ./log:/go/src/mcenter-callback-demo/log
+      - ./config.ini:/go/src/mcenter-callback-demo/config.ini
+    environment:
+      - TZ=Asia/Shanghai 
